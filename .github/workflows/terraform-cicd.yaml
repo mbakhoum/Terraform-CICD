@@ -20,7 +20,7 @@ jobs:
   build_terraform:
     name: build
     runs-on: ubuntu-latest
-    environment: ${{ githib.events.inputs.environment }}
+    environment: ${{ github.events.inputs.environment }}
     env:
       TF_VARS_aws_region: ${{ vars.aws_region }}
 
@@ -31,7 +31,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Initializa Terraform
+      - name: Initialize Terraform
         run : terraform init
 
       - name: Run Terraform plan
