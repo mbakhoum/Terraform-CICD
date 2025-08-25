@@ -35,7 +35,7 @@ terraform {
 
 provider "aws" {
   region  = "us-east-1"
-  profile = "kx_demo" # Change this to your AWS profile name
+#  profile = "kx_demo" # Change this to your AWS profile name
 }
 
 # Deploy a VPC 1
