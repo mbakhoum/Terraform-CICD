@@ -1,6 +1,6 @@
 name: Terraform-Github-Actions
 
-on: [push]
+on: [workflow_dispatch]
   # workflow_dispatch:
   #   inputs:
   #     environment:
@@ -11,9 +11,9 @@ on: [push]
   #       - Dev
   #       - Prod
 
-# env:
-#   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 
 jobs:
