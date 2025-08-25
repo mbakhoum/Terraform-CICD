@@ -1,29 +1,29 @@
 name: Terraform-Github-Actions
 
-on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to run code against'
-        required: true
-        type: choice
-        options:
-        - Dev
-        - Prod
+on: [push]
+  # workflow_dispatch:
+  #   inputs:
+  #     environment:
+  #       description: 'Environment to run code against'
+  #       required: true
+  #       type: choice
+  #       options:
+  #       - Dev
+  #       - Prod
 
-env:
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+# env:
+#   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 
 jobs:
   build_terraform:
     name: build
     runs-on: ubuntu-latest
-    environment: ${{ github.events.inputs.environment }}
+    # environment: ${{ github.events.inputs.environment }}
     # environment: Development
-    env:
-      TF_VARS_aws_region: ${{ vars.aws_region }}
+    # env:
+    #   TF_VARS_aws_region: ${{ vars.aws_region }}
 
     steps:
       - name: checkout code
