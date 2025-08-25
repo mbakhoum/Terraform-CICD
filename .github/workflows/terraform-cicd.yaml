@@ -39,7 +39,7 @@ jobs:
         run : terraform plan
 
       - name: Run Terraform apply
-        run : terraform apply --auto-aprove
+        run : terraform apply --auto-approve
 
   # build_production:
   #   name: build_production
