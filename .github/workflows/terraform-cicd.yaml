@@ -1,6 +1,15 @@
 name: Terraform-Github-Actions
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to Development or Production'
+        required: true
+        type: choice
+        options:
+          - Development
+          - Production
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
