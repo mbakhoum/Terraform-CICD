@@ -1,15 +1,6 @@
 name: Terraform-Github-Actions
 
 on: [workflow_dispatch]
-  # workflow_dispatch:
-  #   inputs:
-  #     environment:
-  #       description: 'Environment to run code against'
-  #       required: true
-  #       type: choice
-  #       options:
-  #       - Dev
-  #       - Prod
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -20,10 +11,6 @@ jobs:
   build_terraform:
     name: build
     runs-on: ubuntu-latest
-    # environment: ${{ github.events.inputs.environment }}
-    # environment: Development
-    # env:
-    #   TF_VARS_aws_region: ${{ vars.aws_region }}
 
     steps:
       - name: checkout code
@@ -40,26 +27,3 @@ jobs:
 
       - name: Run Terraform apply
         run : terraform apply --auto-approve
-
-  # build_production:
-  #   name: build_production
-  #   needs: build_development ### previous job will need to be renamed
-  #   runs-on: ubuntu-latest
-  #   environment: Production
-  #   env:
-  #     TF_VAR_aws_region: ${{ vars.AWS_REGION }}
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-
-  #     - name: Set up Terraform
-  #       uses: hashicorp/setup-terraform@v3
-
-  #     - name: Terraform Init
-  #       run: terraform init
-
-  #     - name: Terraform Plan
-  #       run: terraform plan
-
-  #     - name: Terraform Apply
-  #       run: terraform apply --auto-approve
